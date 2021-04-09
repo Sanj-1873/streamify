@@ -8,7 +8,7 @@
     <body class="p-3 mb-2 bg-dark text-white">
         <nav class="navbar navbar-expand-lg fw-bold fs-3" style="background-color: #1b4883;">
             <div class="container-fluid">
-              <a class="navbar-brand fw-bold fs-2 " href="#">Streamify</a>
+              <a class="navbar-brand fw-bold fs-2 " href="/">Streamify</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -18,14 +18,14 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Explore</a>
+                    <a class="nav-link" href="/">Explore</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       MyMusic
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Playlists</a></li>
+                      <li><a class="dropdown-item" href="playlists">Playlists</a></li>
                       <li><a class="dropdown-item" href="#">Recommendations</a></li>
                     </ul>
                   </li>
@@ -40,7 +40,13 @@
     
         {% block content %}
         {% endblock %}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+          $(document).ready(function() {
+            setTimeout(function() {
+              $('.alert').fadeOut('slow');
+                }, 2000); // <-- time in milliseconds
+            });
+        </script>
     </body>
 
 </html>

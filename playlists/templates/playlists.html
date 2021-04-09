@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+
+
+<div class="flashwrapper">
+  {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+          {% for category, message in messages %}
+              <div id=flashwrapper class="alert alert-{{ category }} alert-dismissible" role="alert">{{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick="close('flashwrapper')">
+              <span aria-hidden="true">&times;</span>
+              </div>
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
+</div>
+
+<script >
+  $(document).ready(function() {
+    setTimeout(function() {
+      $('.alert').fadeOut('slow');
+        }, 1000); // <-- time in milliseconds
+    });
+</script>
+
+
+<div class="row mx-md-n5">
+    <div class="col px-md-5 w-bold fs-1">Your Playlists</div>
+</div>
+
+<div class="d-flex">
+   
+    <div class="card" style="width: 18rem; margin-right: 1rem; background-color: #8c3acf;">
+        <form class="card-header text-white fw-bold fs-4" style="background-color: #4d1b75;" method="POST" > 
+          Create New playlist
+          <input class="form-control me-2 fw-lighter fs-5" type="text" placeholder="Playlist name" name="playlist_name"/>
+          <input class="form-control me-2 fw-lighter fs-5" type="text" placeholder="Song name" name="song_name"/>
+          <input class="btn btn-dark" type="submit" value="Add to Playlist"></input>
+        </form>
+      </div>
+
+      <div class="card" style="width: 18rem; margin-right: 1rem; background-color: #8c3acf;">
+        <button class="card-header text-white fw-bold fs-4" style="background-color: #4d1b75;">
+          Anson Seabra
+        </button>
+        <ul class="list-group list-group-flush text-white" style="background-color: #8c3acf;">
+          <li class="list-group-item text-white" style="background-color: #8c3acf;">An item</li>
+          <li class="list-group-item text-white" style="background-color: #8c3acf;">A second item</li>
+          <li class="list-group-item text-white" style="background-color: #8c3acf;">A third item</li>
+        </ul>
+      </div>
+
+      <div class="card" style="width: 18rem; margin-right: 1rem; background-color: #8c3acf;">
+        <button class="card-header text-white fw-bold fs-4" style="background-color: #4d1b75;">
+          AURORA
+        </button>
+        <ul class="list-group list-group-flush text-white" style="background-color: #8c3acf;">
+          <li class="list-group-item text-white" style="background-color: #8c3acf;">An item</li>
+          <li class="list-group-item text-white" style="background-color: #8c3acf;">A second item</li>
+          <li class="list-group-item text-white" style="background-color: #8c3acf;">A third item</li>
+        </ul>
+      </div>
+</div>
+
+
+
+{%endblock%}
