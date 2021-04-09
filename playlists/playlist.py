@@ -57,9 +57,13 @@ def playlists():
     else:
         return render_template('playlists.html')     
 
-@app.route("/view")
+@app.route("/view/")
 def view():
     return render_template("view.html", values=play.query.all() )
+
+@app.route("/recommendations")
+def recommendations():
+    return render_template("recommendations.html", values=play.query.all() )
 
 
 if __name__ == "__main__":
