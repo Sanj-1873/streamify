@@ -3,6 +3,10 @@ from flask import *
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
 import random
+import sys
+import subprocess
+import flask_excel as excel
+
 
 app = Flask(__name__)
 app.secret_key = "abc"
@@ -78,10 +82,6 @@ def playlists():
 @app.route("/view/")
 def view():
     return render_template("view.html", values=play.query.all() )
-
-@app.route("/recommendations")
-def recommendations():
-    return render_template("recommendations.html", values=play.query.all() )
 
 
 
@@ -501,6 +501,25 @@ def like_song(user,song):
     return redirect(f"/profile/{user}/{song}")
 
 
+
+
+@app.route('/recommendations')
+def my_form():
+    return render_template('templates.html')
+
+@app.route('/recommendations', methods=['POST'])
+def my_form_post():
+    text = request.form['text']
+    subprocess.call(["python3", "recommend.py",'{}'.format(text)])
+    return redirect('/upload')
+
+
+
+@app.route("/upload", methods=['GET', 'POST'])
+def upload_file():
+    data = pd.read_excel('temp.xlsx')
+    return render_template('rec_view.html',tables=[data.to_html(classes='name')],
+    titles = ['Songs'])
 
 
 

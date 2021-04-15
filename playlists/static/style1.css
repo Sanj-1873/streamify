@@ -1,0 +1,14 @@
+body{
+background-color:lightblue;
+background-image: url("./piano.jpg");
+background-position: center;
+height: 100%;
+width: 100%;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+
+h1 {
+    color:white;
+}
