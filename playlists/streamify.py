@@ -79,9 +79,9 @@ def playlists():
     else:
         return render_template('playlists.html')     
 
-@app.route("/view/")
+@app.route("/play_view/")
 def view():
-    return render_template("view.html", values=play.query.all() )
+    return render_template("play_view.html", values=play.query.all() )
 
 
 
