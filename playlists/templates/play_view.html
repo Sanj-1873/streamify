@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}View Playlists{% endblock %}
+{% block content %}
+
+    <div class="card" style="width: 18rem; margin-right: 1rem; background-color: #8c3acf;">
+    <button class="card-header text-white fw-bold fs-4" style="background-color: #4d1b75;">
+      Anson Seabra
+    </button>
+    <ul class="list-group list-group-flush text-white" style="background-color: #8c3acf;"></ul>
+    {% for item in values %}
+        {% if 'Anson' in item.name %}
+        <li class="list-group-item text-white" style="background-color: #8c3acf;">{{item.song}}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+    </div>
+
+{%endblock%}
