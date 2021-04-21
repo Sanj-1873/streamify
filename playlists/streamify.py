@@ -332,7 +332,7 @@ def recent_page(user,song=None):
     if song:
         song_id=int(song)
         song_data = df['Title'][song_id]+" - "+df['Artist'][song_id]
-    for i in recent[int(user)]:
+    for i in recent[int(user)][::-1]:
         if song:
             table_data=table_data+f"""<tr>
                     <td>
